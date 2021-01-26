@@ -3,8 +3,8 @@ class TasksViews extends View<Tasks>{
     //herda metodo update de view 
 
     //metodo template recebe como parameto o model do tipo negociacoes >>> do tipo string retorna um DOM
-   // nessa caso o template handeriza table no html
-    
+    // nessa caso o template handeriza table no html
+
     template(model: Tasks): string {
 
         return `
@@ -13,20 +13,18 @@ class TasksViews extends View<Tasks>{
                 <tr>
                     <th>DATA</th>
                     <th>TASKS</th>
-                   
-                </tr>
+                 </tr>
             </thead>
 
             <tbody>
-                ${model.paraArray().map(negociacao => 
+                ${model.paraArray().map(tsk =>
+            `
+                        <tr>
+                            <td>${tsk.data.getDate()}/${tsk.data.getMonth() + 1}/${tsk.data.getFullYear()}</td>
+                            <td>${tsk.task}</td>
+                        <tr>
                      `
-                        <tr>
-                            <td>${negociacao.data.getDate()}/${negociacao.data.getMonth() +1}/${negociacao.data.getFullYear()}</td>
-                            <td>${negociacao.task}</td>
-                           
-                        <tr>
-                     `   
-                ).join('')}            
+        ).join('')}            
             </tbody>
 
             <tfoot>

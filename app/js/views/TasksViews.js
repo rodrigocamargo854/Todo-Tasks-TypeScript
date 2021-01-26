@@ -6,16 +6,14 @@ class TasksViews extends View {
                 <tr>
                     <th>DATA</th>
                     <th>TASKS</th>
-                   
-                </tr>
+                 </tr>
             </thead>
 
             <tbody>
-                ${model.paraArray().map(negociacao => `
+                ${model.paraArray().map(tsk => `
                         <tr>
-                            <td>${negociacao.data.getDate()}/${negociacao.data.getMonth() + 1}/${negociacao.data.getFullYear()}</td>
-                            <td>${negociacao.task}</td>
-                           
+                            <td>${tsk.data.getDate()}/${tsk.data.getMonth() + 1}/${tsk.data.getFullYear()}</td>
+                            <td>${tsk.task}</td>
                         <tr>
                      `).join('')}            
             </tbody>
